@@ -1,26 +1,25 @@
 import  Router  from "express";
-
+import { createProduct } from "./handlers/product";
+import { handleInputErrors } from "middleware";
 const router = Router();
 
 
-router.use('/', (req, res, next) => {
+router.use('/', handleInputErrors ,(req, res, next) => {
   console.log("Instancia de router llamada?");
   next();
 }); 
 
-router.get("/", (req, res) => {
+router.get("/", handleInputErrors ,(req, res) => {
 res.send("Get");
 });
 
-router.post("/", (req, res) => {
-  res.send("Post")
-});
+router.post("/", handleInputErrors,createProduct);
 
-router.put("/", (req,res) => {
+router.put("/",  handleInputErrors,(req,res) => {
     res.send("put")
 })
 
-router.delete("/", (req,res) =>{
+router.delete("/", handleInputErrors ,(req,res) =>{
     res.send("delete")
 })
 

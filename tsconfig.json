@@ -1,31 +1,23 @@
 {
-    "compilerOptions": {
-        "target": "es2020",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "esModuleInterop": true,
-        "rootDir": "./src",
-        "lib": [
-            "esnext"
-        ],
-        "strict": false,
-        "sourceMap": true,
-        "outDir": "./dist",
-        "rootDirs": [
-            "./src"
-        ],
-        "declaration": false,
-        "paths": {
-            "*": [
-                "./src/*"
-            ]
-        },
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",  
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "rootDir": "./src",
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["esnext"],
+    "strict": false,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "declaration": false,
+    "paths": {
+      "*": ["./src/*"]
     },
-    "include": [
-        "src/**/*.ts"
-    ],
-    "exclude": [
-        "node_modules",
-        "dist"
-    ]
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }

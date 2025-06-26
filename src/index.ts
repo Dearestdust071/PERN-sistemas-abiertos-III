@@ -1,5 +1,22 @@
 import router from "./router.js";
+import db from "./config/db.js"
+import colors from 'colors';
 
-router.listen(4000, () => {
-  console.log("Puerto 4000");
+async function connectionDb(){
+    try {
+        await db.authenticate();
+        db.sync()
+        console.log(colors.rainbow("Conexion exitosa"));
+    } catch (error) {
+        console.log(error);
+        console.log(colors.bgRed.bold("Hubo un error al conectar!"));       
+    }
+}
+
+connectionDb();
+
+const port = process.env.PORT || 4000
+
+router.listen(port, () => {
+  console.log(`Puerto ${port}`);
 })
